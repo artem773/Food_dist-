@@ -46,7 +46,7 @@ window.addEventListener('DOMContentLoaded', ()=>{
     /* TIMER */
     ///////////
 
-    const deadLine = '2023-02-28'; //нужно что би дата била позже фактіческой (как в реальном дедлайне)
+    const deadLine = '2023-12-28'; //нужно что би дата била позже фактіческой (как в реальном дедлайне)
 
     function getTimeRemainig(endtime){
 
@@ -321,7 +321,7 @@ window.addEventListener('DOMContentLoaded', ()=>{
         }, 4000);
     }
 
-    fetch('db.json')
+    fetch('http://localhost:3000/menu')
         .then(data => data.json())
         .then(res => console.log(res));
 
