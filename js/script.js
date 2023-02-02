@@ -394,7 +394,7 @@ window.addEventListener('DOMContentLoaded', ()=>{
 
         slidesField.style.transform = `translateX(-${offset}px)`;
 
-        if(slides.index == slides.length){
+        if(slideIndex == slides.length){
             slideIndex = 1;
         }else{
             slideIndex++;
@@ -407,7 +407,7 @@ window.addEventListener('DOMContentLoaded', ()=>{
         }
     });
 
-    
+
     prev.addEventListener('click', ()=>{
         if(offset == 0){
             offset = +width.slice(0, width.length - 2) * (slides.length - 1)
