@@ -428,6 +428,7 @@ window.addEventListener('DOMContentLoaded', ()=>{
         }else{
             current.textContent = slideIndex;
         }
+        
     });
 
    /*  
