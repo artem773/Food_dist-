@@ -565,7 +565,7 @@ window.addEventListener('DOMContentLoaded', ()=>{
         sex = 'female';
         localStorage.setItem('sex', 'female');
     }
-
+    
     if(localStorage.getItem('ratio')){
         ratio = local.storage.getItem('ratio');
     }else{
