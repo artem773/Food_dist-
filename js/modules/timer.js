@@ -1,9 +1,11 @@
-function timer(){
+
+function timer(id, deadLine){
+    
     ///////////
     /* TIMER */
     ///////////
 
-    const deadLine = '2023-12-28'; //нужно что би дата била позже фактіческой (как в реальном дедлайне)
+    // const deadLine = '2023-12-28'; //нужно что би дата била позже фактіческой (как в реальном дедлайне)
 
     function getTimeRemainig(endtime){
 
@@ -64,7 +66,7 @@ function timer(){
         }   
     } 
 
-    setClock('.timer', deadLine);
+    setClock(id, deadLine);
 }
 
-module.exports = timer;
+export default timer;

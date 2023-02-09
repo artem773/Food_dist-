@@ -1,15 +1,22 @@
-function forms(){
+
+import { openModal } from "./modal";
+import { closeModal } from "./modal";
+import { postData } from "../services/services";
+
+
+function forms(formSelector, modalTimerId){
+
     ////////////
     /* Forms */
     ///////////
 
     //что б бекенд работал нужно чістіть кеш после каждоо ізмененія в коде CMD + SHIFT + R
 
-    const forms = document.querySelectorAll('form');
+    const forms = document.querySelectorAll(formSelector);
 
     const message = {
         loading: './img/form/spinner.svg',
-        succes: 'Спасибо! Скоро ми с вами свяжемся',
+        succes: 'Спасибо! Скоро ми c вами свяжемся',
         failure: 'Что-то пошло не так'
     };
 
@@ -19,16 +26,6 @@ function forms(){
 
     //отправка на сервер json формата с помощью метода fetch
 
-    const postData = async (url, data) => {
-        const res = await fetch(url, {
-            method: 'POST',
-            headers: {
-                'Content-type': 'application/json'
-            },
-            body: data
-        });
-        return await res.json();
-    };
 
     function bindPostData(form){
 
@@ -58,7 +55,7 @@ function forms(){
                 statusMessage.remove();
             }).catch(() => {
                 showThanksModal(message.failure);
-            }).finnaly(() => {
+            }).finally(() => {
                 form.reset();
             });
         });
@@ -69,7 +66,7 @@ function forms(){
         const prevModalDialg = document.querySelector('.modal__dialog');
 
         prevModalDialg.classList.add('hide');
-        openModal(); // откривает модальное окно когда функція визивается 
+        openModal('.modal', modalTimerId); // откривает модальное окно когда функція визивается 
 
         const thanksModal = document.createElement('div');
         thanksModal.classList.add('modal__dialog');
@@ -87,9 +84,9 @@ function forms(){
             thanksModal.remove();
             prevModalDialg.classList.add('show');
             prevModalDialg.classList.remove('hide');
-            closeModal();
+            closeModal('.modal');
         }, 4000);
     }
 }
 
-module.exports = forms;
+export default forms;
